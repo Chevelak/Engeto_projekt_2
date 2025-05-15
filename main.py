@@ -58,22 +58,22 @@ def evaluate_guess(secret, guess):
 #hra a podmínka 
 secret_code = passw
 attempts = 0
-print("Hádej 4-místný tajný kód (žádná nula na začátku, žádné duplicity):")
+print("Guess the 4-digit secret code (no zeros at the beginning, no duplicates):")
 
 while True:
     number = input("Enter a number:")
 
     if not number.isdigit():
-        print("Musí obsahovat pouze čísla!")
+        print("Must contain only numbers!")
         continue
     elif number[0] == "0":
-        print("Nesmí začínat nulou!")
+        print("Must not start with zero!")
         continue
     elif len(number) != len(set(number)):
-        print("Nesmí obsahovat duplicity!")
+        print("Must no contain duplicates!")
         continue
     elif len(number) != 4:
-        print("Číslo musí mít 4 číslice!")
+        print("The number must have 4 digits!")
         continue
     else:
         print(f">>> {number}")
@@ -83,7 +83,7 @@ while True:
     bulls, cows = evaluate_guess(secret_code, guess)
 
     if bulls == 4:
-        print(f"Gratuluji! Uhodl(a) jsi kód {''.join(secret_code)} za {attempts} pokusů.")
+        print(f"Coingratulations! You guessed the code {''.join(secret_code)} in {attempts} attempts.")
         break
     else:
         bull_word = "bull" if bulls == 1 else "bulls"
